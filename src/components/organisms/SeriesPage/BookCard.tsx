@@ -36,4 +36,4 @@ const BookCard: React.FC<Props> = ({ book, seriesId }) => {
     );
 };
 
-export default BookCard;
+export default React.memo(BookCard);
