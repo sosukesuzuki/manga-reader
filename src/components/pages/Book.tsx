@@ -30,7 +30,7 @@ const Book: React.FC<Props> = ({ book }) => {
     const navigation = useNavigation();
     const handleClickBackButton = useCallback(() => {
         navigation.navigate(`/series/${book.seriesId}`);
-    }, [navigation]);
+    }, []);
     return (
         <Container>
             <BackButton onClick={handleClickBackButton}>
