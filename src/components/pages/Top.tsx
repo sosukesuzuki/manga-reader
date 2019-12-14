@@ -8,7 +8,7 @@ import { MAX_WIDTH } from '../../lib/constants';
 const CardContainer = styled.div`
     display: flex;
     justify-content: space-around;
-    width: ${MAX_WIDTH};
+    max-width: ${MAX_WIDTH};
     margin: 0 auto;
 `;
 

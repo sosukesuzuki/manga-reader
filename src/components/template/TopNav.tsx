@@ -5,7 +5,7 @@ import { MAX_WIDTH } from '../../lib/constants';
 import { useNavigation } from 'react-navi';
 
 const CenteredGroup = styled(Navbar.Group)`
-    width: ${MAX_WIDTH};
+    max-width: ${MAX_WIDTH};
     margin: 0 auto;
 `;
 
