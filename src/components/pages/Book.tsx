@@ -35,6 +35,7 @@ const Book: React.FC<Props> = ({ book }) => {
             {imageData.map((image, i) => {
                 return (
                     <Viewer
+                        key={image.imageId}
                         image={image.imageUrl}
                         shouldShown={currentPage === i}
                     />
