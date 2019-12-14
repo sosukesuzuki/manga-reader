@@ -1,7 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 import BusyIndicator from 'react-busy-indicator';
 import TopNav from './template/TopNav';
 import { useLoadingRoute } from 'react-navi';
+
+const MainContainer = styled.div`
+    padding-top: 20px;
+    margin-top: 50px;
+`;
 
 const Layout: React.FC = ({ children }) => {
     const loadingRoute = useLoadingRoute();
@@ -16,7 +22,7 @@ const Layout: React.FC = ({ children }) => {
                 style=""
             />
             <TopNav />
-            {children}
+            <MainContainer>{children}</MainContainer>
         </div>
     );
 };
