@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, route } from 'navi';
+import { mount, route, redirect } from 'navi';
 import { getAllSeries, getSeries } from '../api';
 import Top from '../../components/pages/Top';
 import Series from '../../components/pages/Series';
@@ -11,6 +11,7 @@ export const routes = mount({
         view: <Top />,
     }),
     '/series': mount({
+        '/': redirect('/'),
         '/:id': route(async req => {
             const id = req.params.id;
             const series = await getSeries({ id });
