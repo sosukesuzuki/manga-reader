@@ -17,7 +17,7 @@ export const routes = mount({
             const id = req.params.series_id;
             const series = await getSeries({ id });
             return {
-                view: <Series series={series} />,
+                view: <Series series={series} seriesId={id} />,
             };
         }),
         '/:series_id/:book_id': route(async req => {

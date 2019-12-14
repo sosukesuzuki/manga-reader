@@ -17,10 +17,11 @@ const BookCardList = styled.div`
 
 interface Props {
     series: Series;
+    seriesId: string;
 }
 
-const Series: React.FC<Props> = ({ series }) => {
-    const { seriesImage, title, description, books, seriesId } = series;
+const Series: React.FC<Props> = ({ series, seriesId }) => {
+    const { seriesImage, title, description, books } = series;
     return (
         <main>
             <SeriesImage image={seriesImage} />
