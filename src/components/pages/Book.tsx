@@ -20,7 +20,7 @@ interface Props {
 const Book: React.FC<Props> = ({ book }) => {
     return (
         <Container>
-            <Viewer book={book} />;
+            <Viewer book={book} />
         </Container>
     );
 };
