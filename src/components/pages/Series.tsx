@@ -20,6 +20,14 @@ const Body = styled.div`
 const BookCardList = styled.div`
     display: flex;
     flex-flow: column;
+    @media screen and (min-width: 680px) {
+        flex-flow: row;
+        flex-wrap: wrap;
+        .book-card {
+            width: 350px;
+            margin-right: 15px;
+        }
+    }
 `;
 
 interface Props {
