@@ -10,6 +10,12 @@ export type Book = {
     height: string;
 };
 
+export type BookOutline = {
+    id: string;
+    image: string;
+    title: string;
+};
+
 export type Series = {
     title: string;
     author: string;
@@ -18,11 +24,7 @@ export type Series = {
     volumes: number;
     description: string;
     seriesImage: string;
-    books: {
-        id: string;
-        image: string;
-        title: string;
-    }[];
+    books: BookOutline[];
     width: string;
     height: string;
 };
