@@ -1,7 +1,8 @@
 import React from 'react';
-import { mount, route, lazy } from 'navi';
+import { mount, route } from 'navi';
 import { getAllSeries } from '../api';
 import Top from '../../components/pages/Top';
+import series from './series';
 
 export const routes = mount({
     '/': route({
@@ -9,5 +10,5 @@ export const routes = mount({
         getData: () => getAllSeries(),
         view: <Top />,
     }),
-    '/series': lazy(() => import('./series')),
+    '/series': series,
 });
