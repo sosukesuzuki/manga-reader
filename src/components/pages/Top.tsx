@@ -10,6 +10,7 @@ const CardContainer = styled.div`
     justify-content: space-around;
     max-width: ${MAX_WIDTH};
     margin: 0 auto;
+    flex-wrap: wrap;
 `;
 
 const Top: React.FC = () => {
