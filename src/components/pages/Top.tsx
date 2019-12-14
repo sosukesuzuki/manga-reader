@@ -5,11 +5,14 @@ import { Series } from '../../lib/types';
 import SeriesCard from '../organisms/SeriesCard';
 import { MAX_WIDTH } from '../../lib/constants';
 
+const Container = styled.div`
+    padding-top: 10px;
+    margin: 0 auto;
+    max-width: ${MAX_WIDTH};
+`;
 const CardContainer = styled.div`
     display: flex;
     justify-content: space-around;
-    max-width: ${MAX_WIDTH};
-    margin: 0 auto;
     flex-wrap: wrap;
 `;
 
@@ -17,8 +20,8 @@ const Top: React.FC = () => {
     const route = useCurrentRoute();
     const serieses: Series[] = route.data.data;
     return (
-        <main>
-            <p>ようこそ、漫画リーダーへ</p>
+        <Container>
+            <h1>漫画一覧</h1>
             <CardContainer>
                 {serieses.map(series => {
                     return (
@@ -32,7 +35,7 @@ const Top: React.FC = () => {
                     );
                 })}
             </CardContainer>
-        </main>
+        </Container>
     );
 };
 

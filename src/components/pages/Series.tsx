@@ -9,6 +9,13 @@ const Body = styled.div`
     max-width: ${MAX_WIDTH};
     margin: 0 auto;
     padding: 20px;
+    h2 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
 `;
 const BookCardList = styled.div`
     display: flex;
