@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { routes } from '../lib/routes';
+import { Router, View } from 'react-navi';
 
 const App: React.FC = () => {
-    return <h1>漫画リーダー</h1>;
+    return (
+        <Router routes={routes}>
+            <Suspense fallback={null}>
+                <View />
+            </Suspense>
+        </Router>
+    );
 };
 
 export default App;
