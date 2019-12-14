@@ -13,6 +13,7 @@ export type Book = {
 export type Series = {
     title: string;
     author: string;
+    seriesId: string;
     publisher: string;
     volumes: number;
     description: string;
