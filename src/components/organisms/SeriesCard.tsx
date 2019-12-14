@@ -5,6 +5,7 @@ import { useNavigation } from 'react-navi';
 
 const SizedCard = styled(Card)`
     width: 280px;
+    height: 400px;
 `;
 
 interface Props {
