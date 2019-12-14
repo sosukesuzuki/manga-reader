@@ -4,7 +4,27 @@ import { Book } from '../../lib/types';
 import Viewer from '../organisms/BookPage/Viewer';
 
 const Container = styled.div`
+    display: flex;
+    margin: 0 auto;
+    overflow-y: hidden;
     width: 100vw;
+    max-width: 900px;
+`;
+const IncrementSpan = styled.span`
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    right: 50%;
+    left: 0;
+    opacity: 0;
+`;
+const DecrementSpan = styled.span`
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+    left: 50%;
+    opacity: 0;
 `;
 
 interface Props {
@@ -32,6 +52,8 @@ const Book: React.FC<Props> = ({ book }) => {
     }, [setCurrentPage]);
     return (
         <Container>
+            <IncrementSpan onClick={incrementPage} />
+            <DecrementSpan onClick={decrementPage} />
             {imageData.map((image, i) => {
                 return (
                     <Viewer
@@ -41,8 +63,6 @@ const Book: React.FC<Props> = ({ book }) => {
                     />
                 );
             })}
-            <button onClick={incrementPage}>←</button>
-            <button onClick={decrementPage}>→</button>
         </Container>
     );
 };

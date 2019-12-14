@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SizedImg = styled.img`
-    width: 100%;
+    margin: 0 auto;
+    width: 100vw;
+    object-fit: contain;
+    height: calc(100vh - 50px);
     display: ${({ shouldShown }: { shouldShown: boolean }) =>
         shouldShown ? 'block' : 'none'};
 `;
