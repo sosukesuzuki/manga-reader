@@ -15,6 +15,7 @@ const BookOutlineImage = styled.img`
     width: 100px;
     height: 80px;
     object-fit: cover;
+    margin-right: 10px;
 `;
 
 interface Props {
