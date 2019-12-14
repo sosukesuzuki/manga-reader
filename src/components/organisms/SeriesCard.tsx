@@ -1,7 +1,7 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Card } from '@blueprintjs/core';
-import { useNavigation } from 'react-navi';
+import { Link } from 'react-navi';
 
 const SizedCard = styled(Card)`
     width: 280px;
@@ -16,19 +16,18 @@ interface Props {
 }
 
 const SeriesCard: React.FC<Props> = ({ title, description, imgUrl, id }) => {
-    const navigation = useNavigation();
-    const handleClickSeries = useCallback(() => {
-        navigation.navigate(`/series/${id}`);
-    }, [id, navigation]);
+    const href = useMemo(() => `/series/${id}`, [id]);
     const slicedDescription = useMemo(() => description.slice(0, 50), [
         description,
     ]);
     return (
-        <SizedCard interactive={true} onClick={handleClickSeries}>
-            <h2>{title}</h2>
-            <img src={imgUrl} width="150" />
-            <p>{slicedDescription}...</p>
-        </SizedCard>
+        <Link href={href} prefetch>
+            <SizedCard interactive={true}>
+                <h2>{title}</h2>
+                <img src={imgUrl} width="150" />
+                <p>{slicedDescription}...</p>
+            </SizedCard>
+        </Link>
     );
 };
 

@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Card } from '@blueprintjs/core';
 import { BookOutline } from '../../../lib/types';
-import { useNavigation } from 'react-navi';
+import { Link } from 'react-navi';
 
 const StyledCard = styled(Card)`
     display: flex;
@@ -23,16 +23,15 @@ interface Props {
 }
 
 const BookCard: React.FC<Props> = ({ book, seriesId }) => {
-    const navigation = useNavigation();
     const { title, image, id } = book;
-    const handleClickCard = useCallback(() => {
-        navigation.navigate(`/series/${seriesId}/${id}`);
-    }, [navigation, id]);
+    const href = useMemo(() => `/series/${seriesId}/${id}`, [seriesId, id]);
     return (
-        <StyledCard onClick={handleClickCard}>
-            <BookOutlineImage src={image} />
-            <h3>{title}</h3>
-        </StyledCard>
+        <Link href={href} prefetch>
+            <StyledCard>
+                <BookOutlineImage src={image} />
+                <h3>{title}</h3>
+            </StyledCard>
+        </Link>
     );
 };
 
