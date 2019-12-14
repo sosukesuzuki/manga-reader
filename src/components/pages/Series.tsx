@@ -20,7 +20,7 @@ interface Props {
 }
 
 const Series: React.FC<Props> = ({ series }) => {
-    const { seriesImage, title, description, books } = series;
+    const { seriesImage, title, description, books, seriesId } = series;
     return (
         <main>
             <SeriesImage image={seriesImage} />
@@ -29,7 +29,11 @@ const Series: React.FC<Props> = ({ series }) => {
                 <p>{description}</p>
                 <BookCardList>
                     {books.map(book => (
-                        <BookCard key={book.id} book={book} />
+                        <BookCard
+                            key={book.id}
+                            book={book}
+                            seriesId={seriesId}
+                        />
                     ))}
                 </BookCardList>
             </Body>
