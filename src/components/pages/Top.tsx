@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { useCurrentRoute } from 'react-navi';
 import { Series } from '../../lib/types';
 import SeriesCard from '../organisms/SeriesCard';
+import { MAX_WIDTH } from '../../lib/constants';
 
 const CardContainer = styled.div`
     display: flex;
     justify-content: space-around;
+    max-width: ${MAX_WIDTH};
     margin: 0 auto;
     flex-wrap: wrap;
 `;
