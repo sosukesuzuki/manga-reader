@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SizedImg = styled.img`
     margin: 0 auto;
-    width: 100vw;
+    width: 100%;
     object-fit: contain;
     height: calc(100vh - 50px);
     display: ${({ shouldShown }: { shouldShown: boolean }) =>
