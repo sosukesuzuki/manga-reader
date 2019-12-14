@@ -21,6 +21,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^6.0.3",
     "css-loader": "^3.3.2",
+    "file-loader": "^5.0.2",
     "husky": "^3.1.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
@@ -28,11 +29,13 @@
     "terser-webpack-plugin": "^2.3.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.3",
+    "url-loader": "^3.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "@blueprintjs/core": "^3.22.2",
     "axios": "^0.19.0",
     "navi": "^0.13.6",
     "normalize.css": "^8.0.1",
