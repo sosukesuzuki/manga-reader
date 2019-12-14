@@ -6,6 +6,7 @@ import { useNavigation } from 'react-navi';
 
 const StyledCard = styled(Card)`
     display: flex;
+    margin-bottom: 10px;
     h3 {
         margin: 0;
     }
