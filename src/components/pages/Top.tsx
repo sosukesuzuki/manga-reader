@@ -1,6 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useCurrentRoute } from 'react-navi';
 import { Series } from '../../lib/types';
+import SeriesCard from '../organisms/SeriesCard';
+
+const CardContainer = styled.div`
+    display: flex;
+`;
 
 const Top: React.FC = () => {
     const route = useCurrentRoute();
@@ -8,15 +14,18 @@ const Top: React.FC = () => {
     return (
         <main>
             <p>ようこそ、漫画リーダーへ</p>
-            {serieses.map(series => {
-                return (
-                    <div key={series.seriesId}>
-                        <p>{series.title}</p>
-                        <img src={series.seriesImage} width="200" />
-                        <p>{series.description}</p>
-                    </div>
-                );
-            })}
+            <CardContainer>
+                {serieses.map(series => {
+                    return (
+                        <SeriesCard
+                            key={series.seriesId}
+                            title={series.title}
+                            description={series.description}
+                            imgUrl={series.seriesImage}
+                        />
+                    );
+                })}
+            </CardContainer>
         </main>
     );
 };
