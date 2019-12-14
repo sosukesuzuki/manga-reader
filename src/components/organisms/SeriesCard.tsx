@@ -1,5 +1,10 @@
 import React, { useMemo } from 'react';
+import styled from 'styled-components';
 import { Card } from '@blueprintjs/core';
+
+const SizedCard = styled(Card)`
+    width: 280px;
+`;
 
 interface Props {
     title: string;
@@ -12,11 +17,11 @@ const SeriesCard: React.FC<Props> = ({ title, description, imgUrl }) => {
         description,
     ]);
     return (
-        <Card interactive={true}>
+        <SizedCard interactive={true}>
             <h2>{title}</h2>
-            <img src={imgUrl} width="200" />
+            <img src={imgUrl} width="150" />
             <p>{slicedDescription}...</p>
-        </Card>
+        </SizedCard>
     );
 };
 
