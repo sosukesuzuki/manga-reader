@@ -1,32 +1,38 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Navbar, Button, Alignment } from '@blueprintjs/core';
 import { MAX_WIDTH } from '../../lib/constants';
-import { useNavigation } from 'react-navi';
+import { Link } from 'react-navi';
 
-const CenteredGroup = styled(Navbar.Group)`
-    max-width: ${MAX_WIDTH};
-    margin: 0 auto;
+const Container = styled.div`
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 50px;
+    background-color: #006ebd;
+    a {
+        color: white;
+    }
+    .main {
+        max-width: ${MAX_WIDTH};
+        margin: 0 auto;
+        h1 {
+            margin: 0;
+            line-height: 50px;
+        }
+    }
 `;
 
 const TopNav: React.FC = () => {
-    const navigation = useNavigation();
-    const handleClickHomeButton = useCallback(() => {
-        navigation.navigate('/');
-    }, [navigation]);
     return (
-        <Navbar fixedToTop>
-            <CenteredGroup align={Alignment.CENTER}>
-                <Navbar.Heading>漫画リーダー</Navbar.Heading>
-                <Navbar.Divider />
-                <Button
-                    className="bp3-minimal"
-                    icon="home"
-                    text="Home"
-                    onClick={handleClickHomeButton}
-                />
-            </CenteredGroup>
-        </Navbar>
+        <Container>
+            <div className="main">
+                <Link href="/">
+                    <h1>マンガリーダー</h1>
+                </Link>
+            </div>
+        </Container>
     );
 };
 
