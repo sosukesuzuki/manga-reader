@@ -9,6 +9,10 @@ const copyRules = [
         from: __dirname + '/src/index.html',
         to: __dirname + '/dist/index.html',
     },
+    {
+        from: __dirname + '/src/assets',
+        to: __dirname + '/dist',
+    },
 ];
 
 module.exports = {
