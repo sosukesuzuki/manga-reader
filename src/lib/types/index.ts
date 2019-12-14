@@ -1,5 +1,5 @@
 export type Book = {
-    titile: string;
+    title: string;
     seriesId: string;
     pageNum: number;
     imageData: {
