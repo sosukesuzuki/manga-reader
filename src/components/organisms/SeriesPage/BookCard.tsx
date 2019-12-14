@@ -5,6 +5,9 @@ import { BookOutline } from '../../../lib/types';
 
 const StyledCard = styled(Card)`
     display: flex;
+    h3 {
+        margin: 0;
+    }
 `;
 const BookOutlineImage = styled.img`
     width: 100px;
