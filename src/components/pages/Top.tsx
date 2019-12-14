@@ -23,6 +23,7 @@ const Top: React.FC = () => {
                     return (
                         <SeriesCard
                             key={series.seriesId}
+                            id={series.seriesId}
                             title={series.title}
                             description={series.description}
                             imgUrl={series.seriesImage}

@@ -17,6 +17,9 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
+    devServer: {
+        historyApiFallback: true,
+    },
     output: {
         globalObject: 'self',
         filename: '[name].js',
