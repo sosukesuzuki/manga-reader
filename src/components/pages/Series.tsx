@@ -10,7 +10,7 @@ const Body = styled.div`
     max-width: ${MAX_WIDTH};
     margin: 0 auto;
     padding: 20px;
-    a {
+    .to-top {
         font-size: 20px;
     }
     h2 {
@@ -45,7 +45,9 @@ const Series: React.FC<Props> = ({ series, seriesId }) => {
         <main>
             <SeriesImage image={seriesImage} />
             <Body>
-                <Link href="/">← 漫画一覧にもどる</Link>
+                <Link className="to-top" href="/">
+                    ← 漫画一覧にもどる
+                </Link>
                 <h2>{title}</h2>
                 <p>{description}</p>
                 <BookCardList>
