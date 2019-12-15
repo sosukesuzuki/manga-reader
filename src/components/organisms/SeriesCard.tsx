@@ -24,7 +24,7 @@ const SeriesCard: React.FC<Props> = ({ title, description, imgUrl, id }) => {
         <Link href={href} prefetch>
             <SizedCard interactive={true}>
                 <h2>{title}</h2>
-                <img src={imgUrl} width="150" />
+                <img src={imgUrl} width="150" height="200" alt={title} />
                 <p>{slicedDescription}...</p>
             </SizedCard>
         </Link>
