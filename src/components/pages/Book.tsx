@@ -50,7 +50,7 @@ const Book: React.FC<Props> = ({ book }) => {
         [imageData, currentPage],
     );
     const incrementPage = useCallback(() => {
-        if (currentPage < imageData.length) {
+        if (!isCompletedReading) {
             dispatch({ type: 'incrementPage' });
         }
     }, [currentPage, imageData]);
