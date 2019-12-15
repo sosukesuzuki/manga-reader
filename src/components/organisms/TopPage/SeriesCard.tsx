@@ -21,7 +21,7 @@ const SeriesCard: React.FC<Props> = ({ title, description, imgUrl, id }) => {
         description,
     ]);
     return (
-        <Link href={href} prefetch>
+        <Link href={href}>
             <SizedCard>
                 <Card.Body>
                     <h4>{title}</h4>

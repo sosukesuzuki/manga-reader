@@ -27,7 +27,7 @@ const BookCard: React.FC<Props> = ({ book, seriesId }) => {
     const { title, image, id } = book;
     const href = useMemo(() => `/series/${seriesId}/${id}`, [seriesId, id]);
     return (
-        <Link href={href} prefetch>
+        <Link href={href}>
             <StyledCard className="book-card">
                 <Card.Body>
                     <BookOutlineImage src={image} />
