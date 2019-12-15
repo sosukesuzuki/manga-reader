@@ -1,8 +1,7 @@
-import React, { useCallback, Dispatch } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { BookImageData } from '../../../lib/types';
 import ViewerImage from './ViewerImage';
-import { Action } from '../../pages/Book';
 
 const Container = styled.div`
     display: flex;
@@ -31,33 +30,27 @@ const DecrementSpan = styled.span`
 interface Props {
     imageData: BookImageData[];
     currentPage: number;
-    dispatch: Dispatch<Action>;
+    incrementPage: () => void;
+    decrementPage: () => void;
 }
 
-const Viewer: React.FC<Props> = ({ imageData, currentPage, dispatch }) => {
-    const incrementPage = useCallback(() => {
-        if (currentPage < imageData.length) {
-            dispatch({ type: 'incrementPage' });
-        }
-    }, [currentPage, imageData]);
-    const decrementPage = useCallback(() => {
-        if (currentPage > 0) {
-            dispatch({ type: 'decrementPage' });
-        }
-    }, [currentPage, imageData]);
+const Viewer: React.FC<Props> = ({
+    imageData,
+    currentPage,
+    incrementPage,
+    decrementPage,
+}) => {
     return (
         <Container>
             <IncrementSpan onClick={incrementPage} />
             <DecrementSpan onClick={decrementPage} />
-            {imageData.map((image, i) => {
-                return (
-                    <ViewerImage
-                        key={image.imageId}
-                        image={image.imageUrl}
-                        shouldShown={currentPage === i}
-                    />
-                );
-            })}
+            {imageData.map(({ imageId, imageUrl }, i) => (
+                <ViewerImage
+                    key={imageId}
+                    image={imageUrl}
+                    shouldShown={currentPage === i}
+                />
+            ))}
         </Container>
     );
 };

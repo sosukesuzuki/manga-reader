@@ -1,4 +1,4 @@
-import React, { useReducer, Reducer, useMemo } from 'react';
+import React, { useReducer, Reducer, useMemo, useCallback } from 'react';
 import styled from 'styled-components';
 import { Book } from '../../lib/types';
 import Viewer from '../organisms/BookPage/Viewer';
@@ -23,7 +23,7 @@ interface State {
     currentPage: number;
 }
 
-export interface Action {
+interface Action {
     type: 'incrementPage' | 'decrementPage';
     payload?: any;
 }
@@ -49,6 +49,16 @@ const Book: React.FC<Props> = ({ book }) => {
         () => !(currentPage < imageData.length),
         [imageData, currentPage],
     );
+    const incrementPage = useCallback(() => {
+        if (currentPage < imageData.length) {
+            dispatch({ type: 'incrementPage' });
+        }
+    }, [currentPage, imageData]);
+    const decrementPage = useCallback(() => {
+        if (currentPage > 0) {
+            dispatch({ type: 'decrementPage' });
+        }
+    }, [currentPage, imageData]);
     return (
         <Container>
             <BackButton seriesId={seriesId} />
@@ -58,7 +68,8 @@ const Book: React.FC<Props> = ({ book }) => {
                 <Viewer
                     imageData={imageData}
                     currentPage={currentPage}
-                    dispatch={dispatch}
+                    incrementPage={incrementPage}
+                    decrementPage={decrementPage}
                 />
             )}
         </Container>
