@@ -1,6 +1,6 @@
 import React, { useCallback, Dispatch } from 'react';
 import styled from 'styled-components';
-import { Book } from '../../../lib/types';
+import { BookImageData } from '../../../lib/types';
 import ViewerImage from './ViewerImage';
 import { Action } from '../../pages/Book';
 
@@ -29,13 +29,12 @@ const DecrementSpan = styled.span`
 `;
 
 interface Props {
-    book: Book;
+    imageData: BookImageData[];
     currentPage: number;
     dispatch: Dispatch<Action>;
 }
 
-const Viewer: React.FC<Props> = ({ book, currentPage, dispatch }) => {
-    const { imageData } = book;
+const Viewer: React.FC<Props> = ({ imageData, currentPage, dispatch }) => {
     const incrementPage = useCallback(() => {
         if (currentPage < imageData.length) {
             dispatch({ type: 'incrementPage' });

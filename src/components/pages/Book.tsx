@@ -42,20 +42,21 @@ const reducer: Reducer<State, Action> = (state, action) => {
 };
 
 const Book: React.FC<Props> = ({ book }) => {
+    const { imageData, seriesId } = book;
     const [state, dispatch] = useReducer(reducer, initialState);
     const { currentPage } = state;
     const isCompletedReading = useMemo(
-        () => !(currentPage < book.imageData.length),
-        [book.imageData, currentPage],
+        () => !(currentPage < imageData.length),
+        [imageData, currentPage],
     );
     return (
         <Container>
-            <BackButton seriesId={book.seriesId} />
+            <BackButton seriesId={seriesId} />
             {isCompletedReading ? (
                 <Recommend />
             ) : (
                 <Viewer
-                    book={book}
+                    imageData={imageData}
                     currentPage={currentPage}
                     dispatch={dispatch}
                 />

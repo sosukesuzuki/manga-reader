@@ -1,11 +1,13 @@
+export type BookImageData = {
+    imageId: string;
+    imageUrl: string;
+};
+
 export type Book = {
     title: string;
     seriesId: string;
     pageNum: number;
-    imageData: {
-        imageId: string;
-        imageUrl: string;
-    }[];
+    imageData: BookImageData[];
     width: string;
     height: string;
 };
