@@ -1,14 +1,8 @@
-import axios, { AxiosPromise } from 'axios';
-
 const BASE_URL = 'https://wfc2-image-api-259809.appspot.com/api';
 
-const axiosInstance = axios.create({
-    baseURL: BASE_URL,
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
-
-export function get(path: string, params: any = {}): AxiosPromise {
-    return axiosInstance.get(path, { params });
+export async function get(path: string) {
+    const req = new Request(`${BASE_URL}${path}`);
+    const res = await fetch(req, { method: 'GET' });
+    const obj = await res.json();
+    return { data: obj };
 }
