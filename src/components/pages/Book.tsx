@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useReducer, Reducer } from 'react';
 import styled from 'styled-components';
 import { Book } from '../../lib/types';
 import Viewer from '../organisms/BookPage/Viewer';
+import BackButton from '../organisms/BookPage/BackButton';
 
 const Container = styled.div`
     position: absolute;
@@ -12,24 +13,43 @@ const Container = styled.div`
     background-color: gray;
     z-index: 0;
 `;
-const BackButton = styled.div`
-    position: absolute;
-    left: 2px;
-    top: 10px;
-    font-weight: bold;
-    font-size: 15px;
-    cursor: pointer;
-`;
 
 interface Props {
     book: Book;
 }
 
+interface State {
+    currentPage: number;
+}
+
+export interface Action {
+    type: 'incrementPage' | 'decrementPage';
+    payload?: any;
+}
+
+const initialState: State = {
+    currentPage: 0,
+};
+
+const reducer: Reducer<State, Action> = (state, action) => {
+    switch (action.type) {
+        case 'incrementPage':
+            return { ...state, currentPage: state.currentPage + 1 };
+        case 'decrementPage':
+            return { ...state, currentPage: state.currentPage - 1 };
+    }
+};
+
 const Book: React.FC<Props> = ({ book }) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     return (
         <Container>
-            <BackButton />
-            <Viewer book={book} />
+            <BackButton seriesId={book.seriesId} />
+            <Viewer
+                book={book}
+                currentPage={state.currentPage}
+                dispatch={dispatch}
+            />
         </Container>
     );
 };

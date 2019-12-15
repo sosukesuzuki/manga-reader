@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, Dispatch } from 'react';
 import styled from 'styled-components';
 import { Book } from '../../../lib/types';
 import ViewerImage from './ViewerImage';
+import { Action } from '../../pages/Book';
 
 const Container = styled.div`
     display: flex;
@@ -29,27 +30,22 @@ const DecrementSpan = styled.span`
 
 interface Props {
     book: Book;
+    currentPage: number;
+    dispatch: Dispatch<Action>;
 }
 
-const Viewer: React.FC<Props> = ({ book }) => {
+const Viewer: React.FC<Props> = ({ book, currentPage, dispatch }) => {
     const { imageData } = book;
-    const [currentPage, setCurrentPage] = useState(0);
     const incrementPage = useCallback(() => {
-        setCurrentPage(v => {
-            if (v !== imageData.length) {
-                return v + 1;
-            }
-            return v;
-        });
-    }, [setCurrentPage]);
+        if (currentPage < imageData.length + 1) {
+            dispatch({ type: 'incrementPage' });
+        }
+    }, [currentPage, imageData]);
     const decrementPage = useCallback(() => {
-        setCurrentPage(v => {
-            if (v !== 0) {
-                return v - 1;
-            }
-            return v;
-        });
-    }, [setCurrentPage]);
+        if (currentPage > 0) {
+            dispatch({ type: 'decrementPage' });
+        }
+    }, [currentPage, imageData]);
     return (
         <Container>
             <IncrementSpan onClick={incrementPage} />
