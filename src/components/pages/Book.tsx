@@ -1,9 +1,9 @@
-import React, { useReducer, Reducer, useMemo, useCallback } from 'react';
+import React, { useReducer, Reducer, useMemo, useCallback, lazy } from 'react';
 import styled from 'styled-components';
 import { Book } from '../../lib/types';
 import Viewer from '../organisms/BookPage/Viewer';
 import BackButton from '../organisms/BookPage/BackButton';
-import Recommend from '../organisms/BookPage/Recommend';
+const Recommend = lazy(() => import('../organisms/BookPage/Recommend'));
 
 const Container = styled.div`
     position: absolute;
