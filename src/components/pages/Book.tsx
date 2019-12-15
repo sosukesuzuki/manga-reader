@@ -1,8 +1,7 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Book } from '../../lib/types';
 import Viewer from '../organisms/BookPage/Viewer';
-import { useNavigation } from 'react-navi';
 
 const Container = styled.div`
     position: absolute;
@@ -27,18 +26,12 @@ interface Props {
 }
 
 const Book: React.FC<Props> = ({ book }) => {
-    const navigation = useNavigation();
-    const handleClickBackButton = useCallback(() => {
-        navigation.navigate(`/series/${book.seriesId}`);
-    }, []);
     return (
         <Container>
-            <BackButton onClick={handleClickBackButton}>
-                {'< シリーズページにもどる'}
-            </BackButton>
+            <BackButton />
             <Viewer book={book} />
         </Container>
     );
 };
 
-export default Book;
+export default React.memo(Book);
