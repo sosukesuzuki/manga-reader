@@ -1,8 +1,9 @@
-import React, { useReducer, Reducer } from 'react';
+import React, { useReducer, Reducer, useMemo } from 'react';
 import styled from 'styled-components';
 import { Book } from '../../lib/types';
 import Viewer from '../organisms/BookPage/Viewer';
 import BackButton from '../organisms/BookPage/BackButton';
+import Recommend from '../organisms/BookPage/Recommend';
 
 const Container = styled.div`
     position: absolute;
@@ -42,14 +43,23 @@ const reducer: Reducer<State, Action> = (state, action) => {
 
 const Book: React.FC<Props> = ({ book }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const { currentPage } = state;
+    const isCompletedReading = useMemo(
+        () => !(currentPage < book.imageData.length),
+        [book.imageData, currentPage],
+    );
     return (
         <Container>
             <BackButton seriesId={book.seriesId} />
-            <Viewer
-                book={book}
-                currentPage={state.currentPage}
-                dispatch={dispatch}
-            />
+            {isCompletedReading ? (
+                <Recommend />
+            ) : (
+                <Viewer
+                    book={book}
+                    currentPage={currentPage}
+                    dispatch={dispatch}
+                />
+            )}
         </Container>
     );
 };

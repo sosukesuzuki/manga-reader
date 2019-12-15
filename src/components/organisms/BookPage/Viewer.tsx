@@ -37,7 +37,7 @@ interface Props {
 const Viewer: React.FC<Props> = ({ book, currentPage, dispatch }) => {
     const { imageData } = book;
     const incrementPage = useCallback(() => {
-        if (currentPage < imageData.length + 1) {
+        if (currentPage < imageData.length) {
             dispatch({ type: 'incrementPage' });
         }
     }, [currentPage, imageData]);
