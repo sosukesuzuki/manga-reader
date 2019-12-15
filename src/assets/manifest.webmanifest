@@ -1,0 +1,20 @@
+{
+    "name": "漫画リーダー",
+    "short_name": "漫画リーダー",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#006ebd",
+    "description": "漫画を読むことができます！",
+    "icons": [
+        {
+            "src": "/48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
