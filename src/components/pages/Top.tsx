@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useCurrentRoute } from 'react-navi';
 import { Series } from '../../lib/types';
-import SeriesCard from '../organisms/SeriesCard';
+import SeriesCard from '../organisms/TopPage/SeriesCard';
 import { MAX_WIDTH } from '../../lib/constants';
 
 const Container = styled.div`
