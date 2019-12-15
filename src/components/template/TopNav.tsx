@@ -11,6 +11,7 @@ const Container = styled.div`
     left: 0;
     height: 50px;
     background-color: #006ebd;
+    z-index: 1;
     .main {
         max-width: ${MAX_WIDTH};
         margin: 0 auto;
