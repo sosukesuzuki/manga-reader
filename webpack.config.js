@@ -1,6 +1,8 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin;
 
 const MODE = process.env.NODE_ENV || 'development';
 const PROD = MODE === 'production';
@@ -74,6 +76,7 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin(copyRules),
+        new BundleAnalyzerPlugin(),
         ...(PROD
             ? [
                   new GenerateSW({
