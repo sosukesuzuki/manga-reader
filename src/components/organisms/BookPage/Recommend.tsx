@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { Card } from '@blueprintjs/core';
+import { Card, Button } from '@blueprintjs/core';
+import { useNavigation } from 'react-navi';
 
 const AbsolutedCard = styled(Card)`
     position: absolute;
@@ -20,12 +21,22 @@ const AbsolutedCard = styled(Card)`
     }
 `;
 
-const Recommend: React.FC = () => {
+interface Props {
+    decrementPage: () => void;
+}
+
+const Recommend: React.FC<Props> = ({ decrementPage }) => {
+    const navigation = useNavigation();
+    const navigatoToTop = useCallback(() => {
+        navigation.navigate('/');
+    }, []);
     return (
         <AbsolutedCard>
             <h2>読み終わりました！</h2>
+            <Button onClick={navigatoToTop}>トップページにもどる</Button>
+            <Button onClick={decrementPage}>前のページに戻る →</Button>
         </AbsolutedCard>
     );
 };
 
-export default Recommend;
+export default React.memo(Recommend);

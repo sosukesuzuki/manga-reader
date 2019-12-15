@@ -63,7 +63,7 @@ const Book: React.FC<Props> = ({ book }) => {
         <Container>
             <BackButton seriesId={seriesId} />
             {isCompletedReading ? (
-                <Recommend />
+                <Recommend decrementPage={decrementPage} />
             ) : (
                 <Viewer
                     imageData={imageData}
