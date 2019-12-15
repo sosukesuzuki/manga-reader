@@ -1,4 +1,11 @@
-import React, { useReducer, Reducer, useMemo, useCallback, lazy } from 'react';
+import React, {
+    useReducer,
+    Reducer,
+    useMemo,
+    useCallback,
+    lazy,
+    useEffect,
+} from 'react';
 import styled from 'styled-components';
 import { Book } from '../../lib/types';
 import Viewer from '../organisms/BookPage/Viewer';
@@ -59,6 +66,22 @@ const Book: React.FC<Props> = ({ book }) => {
             dispatch({ type: 'decrementPage' });
         }
     }, [currentPage, imageData]);
+    useEffect(() => {
+        async function onWindowKeyDown(ev: KeyboardEvent) {
+            // left arrow
+            if (ev.keyCode === 37) {
+                incrementPage();
+            }
+            // right arrow
+            if (ev.keyCode === 39) {
+                decrementPage();
+            }
+        }
+        window.addEventListener('keydown', onWindowKeyDown);
+        return () => {
+            window.removeEventListener('keydown', onWindowKeyDown);
+        };
+    }, [incrementPage, decrementPage]);
     return (
         <Container>
             <BackButton seriesId={seriesId} />
