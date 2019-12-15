@@ -17,8 +17,19 @@
     <script type="module">
         try {
             import('/main.js');
-            if (location.hostname !== 'localhost') {
-                navigator.serviceWorker.register('/service-worker.js');
+            if (
+                'serviceWorker' in navigator &&
+                location.hostname !== 'localhost'
+            ) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker
+                        .register('/sw.js')
+                        .then(registration => {
+                            registration.onupdatefound = () => {
+                                registration.update();
+                            };
+                        });
+                });
             }
             const rootEl = document.querySelector('.root');
             rootEl.innerHTML = '<p>...Loading</p>';
