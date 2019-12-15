@@ -23,17 +23,15 @@ const Top: React.FC = () => {
         <Container>
             <h1>漫画一覧</h1>
             <CardContainer>
-                {serieses.map(series => {
-                    return (
-                        <SeriesCard
-                            key={series.seriesId}
-                            id={series.seriesId}
-                            title={series.title}
-                            description={series.description}
-                            imgUrl={series.seriesImage}
-                        />
-                    );
-                })}
+                {serieses.map(series => (
+                    <SeriesCard
+                        key={series.seriesId}
+                        id={series.seriesId}
+                        title={series.title}
+                        description={series.description}
+                        imgUrl={series.seriesImage}
+                    />
+                ))}
             </CardContainer>
         </Container>
     );
