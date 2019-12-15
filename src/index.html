@@ -7,9 +7,16 @@
 <body>
     <div class="root"></div>
     <script type="module">
-        if (location.hostname !== 'localhost') {
-            navigator.serviceWorker.register('/service-worker.js');
+        try {
+            import('/main.js');
+            if (location.hostname !== 'localhost') {
+                navigator.serviceWorker.register('/service-worker.js');
+            }
+            const rootEl = document.querySelector('.root');
+            rootEl.innerHTML = '<p>...Loading</p>';
+        } catch (err) {
+            rootEl.style = 'color: red;';
+            rootEl.innerHTML = `<p>${err.message}</p>`;
         }
     </script>
-    <script src="/main.js"></script>
 </body>
