@@ -23,7 +23,7 @@
             ) {
                 window.addEventListener('load', () => {
                     navigator.serviceWorker
-                        .register('/sw.js')
+                        .register('/service-worker.js')
                         .then(registration => {
                             registration.onupdatefound = () => {
                                 registration.update();
