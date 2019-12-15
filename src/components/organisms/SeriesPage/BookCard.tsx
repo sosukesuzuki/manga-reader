@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { Card } from '@blueprintjs/core';
+import Card from 'react-bootstrap/Card';
 import { BookOutline } from '../../../lib/types';
 import { Link } from 'react-navi';
 
@@ -29,8 +29,10 @@ const BookCard: React.FC<Props> = ({ book, seriesId }) => {
     return (
         <Link href={href} prefetch>
             <StyledCard className="book-card">
-                <BookOutlineImage src={image} />
-                <h3>{title}</h3>
+                <Card.Body>
+                    <BookOutlineImage src={image} />
+                    <h3>{title}</h3>
+                </Card.Body>
             </StyledCard>
         </Link>
     );

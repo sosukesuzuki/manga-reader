@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, lazy } from 'react';
 import styled from 'styled-components';
-import { Card, Button } from '@blueprintjs/core';
+import Card from 'react-bootstrap/Card';
 import { useNavigation } from 'react-navi';
+const Button = lazy(() => import('react-bootstrap/Button'));
 
 const AbsolutedCard = styled(Card)`
     position: absolute;
@@ -32,9 +33,11 @@ const Recommend: React.FC<Props> = ({ decrementPage }) => {
     }, []);
     return (
         <AbsolutedCard>
-            <h2>読み終わりました！</h2>
-            <Button onClick={navigatoToTop}>トップページにもどる</Button>
-            <Button onClick={decrementPage}>前のページに戻る →</Button>
+            <Card.Body>
+                <Card.Title>読み終わりました！</Card.Title>
+                <Button onClick={navigatoToTop}>トップページにもどる</Button>
+                <Button onClick={decrementPage}>前のページに戻る →</Button>
+            </Card.Body>
         </AbsolutedCard>
     );
 };

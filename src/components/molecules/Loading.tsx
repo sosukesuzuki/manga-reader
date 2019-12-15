@@ -1,8 +1,8 @@
 import React from 'react';
-import { Spinner } from '@blueprintjs/core';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Loading = () => {
-    return <Spinner />;
+    return <Spinner animation="border" />;
 };
 
 export default Loading;

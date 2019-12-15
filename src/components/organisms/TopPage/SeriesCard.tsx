@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { Card } from '@blueprintjs/core';
+import Card from 'react-bootstrap/Card';
 import { Link } from 'react-navi';
 
 const SizedCard = styled(Card)`
@@ -22,10 +22,12 @@ const SeriesCard: React.FC<Props> = ({ title, description, imgUrl, id }) => {
     ]);
     return (
         <Link href={href} prefetch>
-            <SizedCard interactive={true}>
-                <h2>{title}</h2>
-                <img src={imgUrl} width="150" height="200" alt={title} />
-                <p>{slicedDescription}...</p>
+            <SizedCard>
+                <Card.Body>
+                    <h2>{title}</h2>
+                    <img src={imgUrl} width="150" height="200" alt={title} />
+                    <p>{slicedDescription}...</p>
+                </Card.Body>
             </SizedCard>
         </Link>
     );
