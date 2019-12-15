@@ -30,6 +30,7 @@ module.exports = {
         globalObject: 'self',
         filename: '[name].js',
         chunkFilename: '[name].[id].[contenthash].js',
+        publicPath: '/',
     },
     optimization: {
         minimize: !DEV,
