@@ -31,7 +31,7 @@ const BookCard: React.FC<Props> = ({ book, seriesId }) => {
             <StyledCard className="book-card">
                 <Card.Body>
                     <BookOutlineImage src={image} />
-                    <h3>{title}</h3>
+                    <h5>{title}</h5>
                 </Card.Body>
             </StyledCard>
         </Link>

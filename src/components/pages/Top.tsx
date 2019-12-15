@@ -9,6 +9,7 @@ const Container = styled.div`
     padding-top: 10px;
     margin: 0 auto;
     max-width: ${MAX_WIDTH};
+    z-index: 1;
 `;
 const CardContainer = styled.div`
     display: flex;
